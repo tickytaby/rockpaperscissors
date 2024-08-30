@@ -24,53 +24,48 @@ let computerScore = 0
 
 function playRound(humanChoice, computerChoice) {
     switch (true) {
-        case (humanChoice === "rock" && computerChoice === "paper"):
-            console.log("You LOSE");
-            computerScore++;
-            break;
         case (humanChoice === "rock" && computerChoice === "scissors"):
             console.log("You WIN")
             humanScore++;
-            break;
-        case (humanChoice === "rock" && computerChoice === "rock"):
-            console.log("It's a TIE");
-            break;
-        case (humanChoice === "paper" && computerChoice === "scissors"):
-            console.log("You LOSE");
-            computerScore++;
             break;
         case (humanChoice === "paper" && computerChoice === "rock"):
             console.log("You WIN")
             humanScore++;
             break;
-        case (humanChoice === "paper" && computerChoice === "paper"):
-            console.log("It's a TIE");
-            break;   
-        case (humanChoice === "scissors" && computerChoice === "rock"):
-            console.log("You LOSE");
-            computerScore++;
-            break;
         case (humanChoice === "scissors" && computerChoice === "paper"):
             console.log("You WIN")
             humanScore++;
             break;
-        case (humanChoice === "scissors" && computerChoice === "scissors"):
+        case (humanChoice == computerChoice):
             console.log("It's a TIE");
+            break; 
+        default:
+            console.log("You LOSE");
+            computerScore++;
             break;
     } 
 }
 
-// const humanMove = getHumanChoice();
-// const pcMove = getComputerChoice();
-
-
-// playRound(humanMove, pcMove);
-// console.log(humanScore);
-// console.log(computerScore);
-
-for (let i = 0; i < 5; i++) {
-    const humanMove = getHumanChoice();
-    const pcMove = getComputerChoice();
-    playRound(humanMove, pcMove);
-    console.log("You: " + humanScore + " | PC: " + computerScore);
+function playGame() {
+    for (let i = 0; i < 5; i++) {
+        const humanMove = getHumanChoice();
+        const pcMove = getComputerChoice();
+        playRound(humanMove, pcMove);
+        console.log("You: " + humanScore + " | PC: " + computerScore);
+    }
 }
+
+function declareWinner() {
+    if (humanScore > computerScore) {
+        alert("Congratu-fucking-lations! YOU WIN!");
+    }
+    else if (humanScore < computerScore) {
+        alert("You LOST, NOOB!");
+    }
+    else {
+        alert("YOU TIED WITH A BOT LMAO");
+    }
+}
+
+playGame();
+declareWinner();
