@@ -1,2 +1,2 @@
 # rockpaperscissors
-Impossible to win rock paper scissors game
+Introductory project for TOP
